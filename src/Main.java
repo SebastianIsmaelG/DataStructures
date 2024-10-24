@@ -27,5 +27,11 @@ public class Main {
         //System.out.println(lista.contiene(a3));
 
         //VOY EN Cambiar el tamaño del Array
+
+        for(int i = 0; i < 300; i++) {
+            Alumno Y = new Alumno("Joao" + i);
+            lista.adicionar(i,Y);
+        }
+        System.out.println(lista);
     }
 }

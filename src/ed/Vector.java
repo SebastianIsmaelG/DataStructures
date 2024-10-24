@@ -9,9 +9,18 @@ public class Vector {
     private boolean posicionValida(int posicion) {
         return posicion >= 0 && posicion <= totalDeAlumnos;
     }
+    /*/revisar
+    public void adiciona(Alumno alumno) {
+        this.guardarEspacio();
+        this.alumnos[totalDeAlumnos] = alumno;
+        totalDeAlumnos++;
+    }
 
+    /*/
     public void adicionar(int posicion,Alumno alumno){
         //resolver el adicionar en una posicion mayor al tamaño del totalDeAlumnos
+        this.guardarEspacio();//nuevo array
+
         if(!posicionValida(posicion)) {
             throw new IllegalArgumentException("posicion invalida");
         }
@@ -39,6 +48,16 @@ public class Vector {
             this.alumnos[i] = this.alumnos[i+1];
         }
         totalDeAlumnos--;
+    }
+
+    private void guardarEspacio(){
+        if (totalDeAlumnos == alumnos.length){
+            Alumno[] nuevoArray = new Alumno[alumnos.length*2];
+            for(int i= 0; i < alumnos.length; i++){
+               nuevoArray[i] = alumnos[i];
+            }
+            this.alumnos = nuevoArray;
+        }
     }
 
     public boolean contiene(Alumno alumno){
